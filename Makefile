@@ -4,11 +4,12 @@
 
 LIBS := $(wildcard *.a) $(wildcard *.o)
 
-.PHONY: all sig pat yar clean
+.PHONY: all sig pat yar zig clean
 
 sig : $(LIBS:.a=.sig) $(LIBS:.o=.sig)
 pat : $(LIBS:.a=.pat) $(LIBS:.o=.pat)
 yar : $(LIBS:.a=.yar) $(LIBS:.o=.yar)
+zig : $(LIBS:.o=.zig)
 
 libagbsyscall_2.pat: libagbsyscall_2.a
 	pelf -M2 $<
@@ -37,6 +38,9 @@ libagbsyscall_3.pat: libagbsyscall_3.a
 	retdec-pat2yara $*.yar.pat -o $@
 	rm -f $*.yar.pat
 
+%.zig: %.o
+	radare2 -a arm -b 16 -c 'ahb 16 @@ sym.*; af @@ sym.*; zg; zos $@' -q $<
+	
 clean:
-	rm -f *.pat *.sig *.yar *.exc *.err
+	rm -f *.pat *.sig *.yar *.exc *.err *.zig
 	
