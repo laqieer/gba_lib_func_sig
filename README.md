@@ -28,7 +28,7 @@ Read the manual of IDA Pro / Radare2 / RetDec.
 |libisagbprn_3|2000/11/22|ED0F9A48|
 |mks4agbLib_1.05|2001/2/17|E7512BCB|
 |m4aLibOD1_1.05|2001/2/17|A6A210E0|
-|m4aLibUSC|2001/2/17|5ECE90C6|
+|m4aLibUSC_1.05|2001/2/17|5ECE90C6|
 |libagbbackup_4|2002/11/15|645FE7ED|
 |libagbir_4|2001/3/29|9D7165D1|
 |libisagbprn_4|2002/11/14|105CE3DB|
